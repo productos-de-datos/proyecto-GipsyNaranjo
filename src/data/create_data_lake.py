@@ -22,8 +22,6 @@ def create_data_lake():
 
 
     """
-    #raise NotImplementedError("Implementar esta función")
-
     import os
     os.mkdir("./data_lake")
     carpetas = ["landing","raw", "cleansed", "business"]
@@ -32,10 +30,11 @@ def create_data_lake():
     [os.mkdir(os.path.join("data_lake/",c)) for c in carpetas]
     [os.mkdir(os.path.join("data_lake/business/",c)) for c in carpetas_business]
     os.mkdir("./data_lake/business/reports/figures")
-    returns
-create_data_lake()
+    return
+
+    raise NotImplementedError("Implementar esta función")
 
 if __name__ == "__main__":
     import doctest
-
+    create_data_lake()
     doctest.testmod()
