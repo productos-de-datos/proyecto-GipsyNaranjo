@@ -25,6 +25,7 @@ def compute_monthly_prices():
     preciosmensuales =  df[["anio-mes", "precio"]]
     preciosmensuales = preciosmensuales.groupby("anio-mes", as_index=False)["precio"].mean()
     preciosmensuales = preciosmensuales.rename(columns={"anio-mes":"fecha"})
+    preciosmensuales["fecha"]=pd.to_datetime(preciosmensuales["fecha"]).dt.strftime('%Y-%m-%d')
     
     #preciosmensuales=preciosmensuales.rename(columns={"precio":"precio_pro_mensual"})
     #preciosmensualescom = pd.merge(df, preciosmensuales, on="año-mes", how="left")
