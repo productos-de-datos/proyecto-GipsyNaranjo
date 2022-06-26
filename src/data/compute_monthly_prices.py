@@ -1,6 +1,7 @@
 """
-Tome el archivo procesado "precios-horarios.csv" con pandas, porteriormente, extraiga de cada fecha el año y el mes,
-obtenga el promedio mensual de los precios y adicional exporte a data_lake/business/
+Tome el archivo procesado "precios-horarios.csv" con pandas, posteriormente, extraiga de cada fecha el año y el mes y 
+obtenga el promedio mensual de los precios de cada mes por cada año y exporte el resultado a la ruta "data_lake/business/" 
+con el nombre "precios-mensuales.csv".
 """
 
 def compute_monthly_prices():
@@ -26,7 +27,7 @@ def compute_monthly_prices():
     preciosmensuales = preciosmensuales.groupby("anio-mes", as_index=False)["precio"].mean()
     preciosmensuales = preciosmensuales.rename(columns={"anio-mes":"fecha"})
     preciosmensuales["fecha"]=pd.to_datetime(preciosmensuales["fecha"]).dt.strftime('%Y-%m-%d')
-    
+
     #preciosmensuales=preciosmensuales.rename(columns={"precio":"precio_pro_mensual"})
     #preciosmensualescom = pd.merge(df, preciosmensuales, on="año-mes", how="left")
     #preciosmensualescom = preciosmensualescom[["fecha", "precio"]]
