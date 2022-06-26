@@ -1,6 +1,7 @@
-""""Lea con la libreria glob todos los CSV en la carpeta data_lake/raw/ los une con append y finalmente los convierte
+"""Lea con la libreria glob todos los CSV en la carpeta data_lake/raw/ los une con append y finalmente los convierte
 a pandas, elimina las filas vacias y posteriormente con la funcion de pandas melt organiza los datos
-con columnas fecha, hora y precio. organiza su formato, filtra desde 1997 a 2021 y exporta en csv el archivo procesado en data_lake/cleansed/ """
+con columnas fecha, hora y precio. organiza su formato, filtra desde 1997 a 2021 y exporta en csv el archivo procesado en data_lake/cleansed/
+"""
 
 
 def clean_data():
