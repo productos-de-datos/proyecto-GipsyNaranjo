@@ -20,7 +20,7 @@ def make_daily_prices_plot():
     precios_diarios['fecha'] = pd.to_datetime(precios_diarios["fecha"])
     x = precios_diarios.fecha
     y = precios_diarios.precio
-    plt.plot(x, y, 'c')
+    plt.plot(x, y, 'g')
     plt.title('Promedio de Precios Diarios')
     plt.xlabel('Fecha')
     plt.ylabel('Precio')

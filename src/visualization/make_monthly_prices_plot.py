@@ -20,7 +20,7 @@ def make_monthly_prices_plot():
     precios_mes['fecha'] = pd.to_datetime(precios_mes["fecha"])
     x = precios_mes.fecha
     y = precios_mes.precio
-    plt.plot(x, y, 'm')
+    plt.plot(x, y, 'g')
     plt.title('Promedio de Precios Mensuales')
     plt.xlabel('Fecha')
     plt.ylabel('Precio')
