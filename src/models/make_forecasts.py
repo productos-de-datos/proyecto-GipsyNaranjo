@@ -39,7 +39,7 @@ def make_forecasts():
     # Entrene el clasificador usando X_train y y_train
     linearRegression.fit(X_train, y_train)
 
-    pickle.dump(linearRegression, open('src/models/precios-diarios.pickle', 'wb'))
+    # pickle.dump(linearRegression, open('src/models/precios-diarios.pickle', 'wb'))
 
     #Realiza el Forecast 
     pickled_model = pickle.load(open('src/models/precios-diarios.pickle', 'rb'))
