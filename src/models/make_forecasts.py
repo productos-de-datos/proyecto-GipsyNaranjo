@@ -12,10 +12,18 @@ def make_forecasts():
 
 
     """
-    raise NotImplementedError("Implementar esta función")
+    import pickle
+    import pandas as pd
+    
+    pickled_model = pickle.load(open('models/precios-diarios.pickle', 'rb'))
+    df = pd.DataFrame(pickled_model)
+    #print(pickled_model)
+    #pickled_model.predict(X_test)
+
+    #raise NotImplementedError("Implementar esta función")
 
 
 if __name__ == "__main__":
     import doctest
-
+    make_forecasts()
     doctest.testmod()

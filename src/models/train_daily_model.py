@@ -41,6 +41,16 @@ def train_daily_model():
 
     pickle.dump(linearRegression, open('src/models/precios-diarios.pickle', 'wb'))
 
+    #Realiza el Forecast 
+    pickled_model = pickle.load(open('src/models/precios-diarios.pickle', 'rb'))
+    ypred=pickled_model.predict(X_test)
+
+    X_test=pd.DataFrame(X_test, columns = ['fecha'])
+    y_test=pd.DataFrame(y_test, columns = ['precio'])
+    ypred=pd.DataFrame(ypred, columns = ['precio_pronostico'])
+
+    dtfinal=pd.concat([X_test,y_test,ypred], axis=1)
+    dtfinal.to_csv("data_lake/business/forecasts/precios-diarios.csv",index=None, header=True)
 
 if __name__ == "__main__":
     import doctest
