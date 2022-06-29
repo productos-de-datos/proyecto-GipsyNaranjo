@@ -18,6 +18,7 @@ def make_forecasts():
     from sklearn.linear_model import LinearRegression
     from sklearn.model_selection import train_test_split
     from sklearn.metrics import mean_squared_error
+    from sklearn.ensemble import RandomForestRegressor
 
     # Lea el archivo `precios-diarios` y asignelo al DataFrame `df`
     df = pd.read_csv("data_lake/business/features/precios-diarios.csv", encoding = 'utf-8', sep=',')
@@ -34,12 +35,10 @@ def make_forecasts():
     (X_train, X_test, y_train, y_test,) = train_test_split(X_fecha, y_precio, test_size=0.2, random_state=123456,)
 
     # Cree una instancia del modelo de regresión lineal
-    linearRegression = LinearRegression()
-
+    clf = RandomForestRegressor(n_estimators=100, max_features='sqrt', n_jobs=-1, oob_score = True, random_state = 123456)
+    
     # Entrene el clasificador usando X_train y y_train
-    linearRegression.fit(X_train, y_train)
-
-    # pickle.dump(linearRegression, open('src/models/precios-diarios.pickle', 'wb'))
+    clf.fit(X_train,y_train)
 
     #Realiza el Forecast 
     pickled_model = pickle.load(open('src/models/precios-diarios.pickle', 'rb'))
@@ -50,12 +49,10 @@ def make_forecasts():
     ypred=pd.DataFrame(ypred, columns = ['precio_pronostico'])
 
     dtfinal=pd.concat([X_test,y_test,ypred], axis=1)
-    dtfinal.to_csv("data_lake/business/forecast/precios-diarios.csv",index=None, header=True)
-
-    #raise NotImplementedError("Implementar esta función")
-
+    dtfinal.to_csv("data_lake/business/forecasts/precios-diarios.csv",index=None, header=True)
 
 if __name__ == "__main__":
     import doctest
     make_forecasts()
     doctest.testmod()
+
