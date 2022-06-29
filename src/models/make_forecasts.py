@@ -49,7 +49,7 @@ def make_forecasts():
     ypred=pd.DataFrame(ypred, columns = ['precio_pronostico'])
 
     dtfinal=pd.concat([X_test,y_test,ypred], axis=1)
-    dtfinal.to_csv("data_lake/business/forecast/precios-diarios.csv",index=None, header=True)
+    dtfinal.to_csv("data_lake/business/forecasts/precios-diarios.csv",index=None, header=True)
 
 if __name__ == "__main__":
     import doctest
