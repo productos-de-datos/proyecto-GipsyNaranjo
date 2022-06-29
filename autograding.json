@@ -122,7 +122,7 @@
     },
     {
       "name": "Test 13",
-      "setup": "pip3 install matplotlib sklearn pandas luigi pytest pylint flake8_docstrings",
+      "setup": "pip3 install matplotlib sklearn pandas luigi pytest pylint",
       "run": "pylint *.py",
       "input": "",
       "output": "",
@@ -132,7 +132,7 @@
     },
     {
       "name": "Test 14",
-      "setup": "pip3 install matplotlib sklearn pandas luigi pytest pylint flake8_docstrings",
+      "setup": "pip3 install matplotlib sklearn pandas luigi pytest pylint",
       "run": "pytest",
       "input": "",
       "output": "",
