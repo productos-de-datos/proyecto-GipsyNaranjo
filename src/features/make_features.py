@@ -1,6 +1,8 @@
 """Se lee el archivo creado en el python compute_daily_prices.py
 y se escribe nuevamente en la ruta indicada.
 """
+import doctest
+import pandas as pd
 def make_features():
     """
     Prepara datos para pronóstico.Cree el archivo data_lake/business/features/precios-diarios.csv. Este
@@ -10,10 +12,7 @@ def make_features():
     adicionalmente, la fecha del precio que se desea pronosticar y el precio
     que se desea pronosticar (variable dependiente).En la carpeta notebooks/ cree los notebooks de jupyter necesarios para
     analizar y determinar las variables explicativas del modelo."""
-
-    import doctest
-    import pandas as pd
-
+    
     rutainput='data_lake/business/precios-diarios.csv'
     rutaouput="data_lake/business/features/precios-diarios.csv"
     df_caract=pd.read_csv(rutainput,index_col=None,header=0)
