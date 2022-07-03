@@ -1,3 +1,4 @@
+'''
 #
 # Evaluador
 # ---------------------------------------------------------------------------------------
@@ -6,6 +7,7 @@
 # test_02: pytest
 # test_03: doctest
 #
+'''
 import os
 import sys
 
@@ -144,7 +146,8 @@ def test_11():
 def test_12():
     """Pronosticos"""
     os.system("make make_forecasts")
-    assert os.path.isfile("data_lake/business/forecasts/precios-diarios.csv") is True
+    assert os.path.isfile(
+        "data_lake/business/forecasts/precios-diarios.csv") is True
 
 
 test = {
@@ -161,5 +164,6 @@ test = {
     "11": test_11,
     "12": test_12,
 }[sys.argv[1]]
+
 
 test()
